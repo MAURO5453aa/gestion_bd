@@ -42,3 +42,17 @@ where p.nombre like 'c%' and mp.nombre <> 'tarjeta débito'
 commit tran
 
 --punto 5 ------------------------
+begin tran
+select 
+sum(d.precio*d.cantidad) as total, cl.nombre
+from clientes cl 
+join facturas f on f.id_cliente = cl.id_cliente
+join modo_pagos md on md.num_pago = f.num_factura
+join detalles d on f.num_factura = d.id_factura
+join productos pr on pr.id_producto= d.id_producto
+join categorias ct on ct.id_categoria= pr.id_categoria
+where md.nombre = 'efectivo' and ct.nombre= 'Mercado'
+group by cl.nombre 
+commit tran
+
+
