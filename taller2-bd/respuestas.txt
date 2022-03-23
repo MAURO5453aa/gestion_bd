@@ -1,3 +1,8 @@
+EQUIPO:
+Juan Pablo Medina Diaz
+Dileyson Echeverria Murillo
+Óscar Mauricio Pineda Herrera
+
 1.Se describan las acciones de cada bloque de instrucciones.
 -La conexión 2 no puede actualizar. 
 -Por que el proceso de la conexión 1 no se ha commiteadodespues de hacer comité.
