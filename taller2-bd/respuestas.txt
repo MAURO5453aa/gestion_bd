@@ -1,1 +1,44 @@
+1.Se describan las acciones de cada bloque de instrucciones.
+-La conexión 2 no puede actualizar. 
+-Por que el proceso de la conexión 1 no se ha commiteadodespues de hacer comité.
+-La conexión 2 muestra el resultado Cuando se cambia a repeatable read.
+-La conexión 2 se queda esperando que termine la conexión 1.
+-Al ejecutar la conexión 2 se queda esperando para ejecutarse.
+-Luego la conexión 1 hace commit  y la conexión 2 muestra el resultado.
 
+2.¿Qué sucede si se reemplaza el nivel de aislamiento a 'REPEATABLE READ'en ambas conexiones?
+-La conexión 1 se ejecuta normal
+-la 2 se queda esperando
+-la conexión uno actualiza. 
+-la 2 sigue esperando. 
+-la conexión 1 hace commit.
+-la conexión 2 se ejecuta tomando en cuanta los valores modificados. 
+
+3.¿Qué sucede si se reemplaza el nivel de aislamiento a 'REPEATABLE READ' en la conexión 2?.
+Al cambiar a "repeatable read", la conexión 2  se queda esperando que 
+finalice la 1 para poder ejecutarse.
+
+3.1¿Qué sucede si se reemplaza el nivel de aislamiento a 'READ COMMITTED' en la conexion 2?.
+Al cambiar a "read commited", la conexion 2 se queda esperando, finalice la 1 para 
+poder ejecutarse, y los valores quedan igual que al comienzo. 
+
+3.3¿Qué sucede si se reemplaza el nivel de aislamiento a 'SERIALIZABLE' en la conexión 2?.
+Igual que los 2 anteriores al cambiar a "serializable".
+
+4.¿Cómo se comporta el sistema?
+
+1) Primero se ejecuta la conexión 1 sin problemas mostrando 2 resultados.
+2) la conexión 2 también se ejecuta sin problemas y actualiza los resultados
+3) Luego la conexión 1 muestra los datos actualizados.
+4) Dando un solo resultado.
+
+4.1 ¿Qué sucede si se reemplaza el nivel de aislamiento a 'REPEATABLE READ' en la conexión 1?
+
+Al actualizar y modificar datos como se hace commits, justo después de las modificaciones 
+y antes que se ejecute la otra conexión, las conexiones funcionan normal aun cuando se cambian,
+el aislamiento de la primera conexión a 'REPEATABLE READ'. 
+
+
+5.¿Cómo se comporta el sistema?
+Al actualizar y modificar datos, como se hace commits antes de modificaciones,
+las conexiones funcionan sin problemas
