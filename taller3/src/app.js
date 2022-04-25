@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import productRoutes from "./routes/products.routes";
-import ClientesRoutes from "./routes/Clientes.routes";
+import ClientesRoutes from "./routes/clientes.routes";
 import morgan from "morgan";
 
 import config from "./config";
